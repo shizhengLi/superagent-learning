@@ -59,14 +59,14 @@
 
 ### 05 · Source 插件协议与统一事件模型
 
-- [ ] 计划文件 `05-source-contract-and-trigger.md` · 6,000–10,000 字
+- [x] [05-source-contract-and-trigger.md](05-source-contract-and-trigger.md) · 已交付
 - **原理与内容**　解释适配器、稳定事件标识、路由实体与回复地址。拆解 `SourceKind`、`SourceContext`、`SourceRegistry`，按注册、配置解析、Scope 过滤、上下文读、Channel 写与执行变量注册梳理接口。对照 Trigger 的 actor、human、addressed、threads、meta 字段。
 - **面试追问**　接一个工单系统最少要实现什么？消息、线程与回复地址分别承担什么职责？
 - **精读依据**　[SourceKind](../dsh-superagent-prototype/src/sources/kind.ts) · [SourceHost](../dsh-superagent-prototype/src/sources/host.ts) · [SourceRegistry](../dsh-superagent-prototype/src/sources/registry.ts) · [注册测试](../dsh-superagent-prototype/tests/registry.spec.ts)
 
 ### 06 · GitHub 轮询、游标与重复事件
 
-- [ ] 计划文件 `06-github-polling-and-checkpoints.md` · 10,000–15,000 字或以上
+- [x] [06-github-polling-and-checkpoints.md](06-github-polling-and-checkpoints.md) · 已交付
 - **原理与内容**　逐路梳理通知、仓库级事件流、订阅 Thread、关联 PR 与 CI 检查如何进入系统。讲清 ETag 与游标的配合、游标回退留重叠窗口、失败项重读和 Trigger ID 去重。用同一条评论从多个入口抵达、某一页中断和事件晚到三个案例演算。
 - **面试追问**　游标推进过快与过慢各有什么代价？迁移到 webhook 后，如何保留补拉和去重机制？
 - **精读依据**　[GitHub Source](../dsh-superagent-prototype/src/sources/github.ts) · [Trigger 转换](../dsh-superagent-prototype/src/sources/github-trigger.ts) · [轮询公用逻辑](../dsh-superagent-prototype/src/sources/poll.ts) · [Source 测试](../dsh-superagent-prototype/tests/sources.spec.ts)
