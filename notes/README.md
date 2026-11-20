@@ -36,7 +36,7 @@
 
 ### 02 · Cordis 插件、DSH bundle 与运行时装配
 
-- [ ] 计划文件 `02-bundle-and-runtime-bootstrap.md` · 6,000–10,000 字
+- [x] [02-bundle-and-runtime-bootstrap.md](02-bundle-and-runtime-bootstrap.md) · 已交付
 - **原理与内容**　解释依赖注入、插件生命周期与组装入口。沿 `package.json → cordis.patch.yml → apply → Runtime.initialize` 追踪主插件、GitHub/飞书 watcher 和 Web client 如何加载，梳理状态目录锁、管理 API、账号探测、主 Session 创建和后台循环的启动依赖。
 - **面试追问**　为什么管理入口可以先于 setup 完成？插件重启时，哪些状态来自 SQLite，哪些来自 DSH Session？
 - **精读依据**　[包清单](../dsh-superagent-prototype/package.json) · [bundle 配置](../dsh-superagent-prototype/cordis.patch.yml) · [构建入口](../dsh-superagent-prototype/tsdown.config.ts) · [Runtime](../dsh-superagent-prototype/src/app/runtime.ts) · [bundle 测试](../dsh-superagent-prototype/tests/bundle-patch.spec.ts)
