@@ -73,14 +73,14 @@
 
 ### 07 · 飞书的实时流、历史补拉与话题线程
 
-- [ ] 计划文件 `07-feishu-live-backfill-and-threads.md` · 6,000–10,000 字
+- [x] [07-feishu-live-backfill-and-threads.md](07-feishu-live-backfill-and-threads.md) · 已交付
 - **原理与内容**　分别追踪事件消费、群聊历史补拉、群名刷新和已订阅话题轮询。对照私聊、群聊提及、根消息、话题内回复和历史事件的映射。推演实时流断开后如何补数据，以及新加入群聊、消息撤回、重复到达和权限变化怎样影响可观察结果。
 - **面试追问**　为什么实时消费和历史补拉都需要？如何解释「机器人能收到」与「系统授权执行」之间的距离？
 - **精读依据**　[飞书 Source](../dsh-superagent-prototype/src/sources/feishu.ts) · [循环与补拉](../dsh-superagent-prototype/src/sources/feishu-loops.ts) · [Trigger 转换](../dsh-superagent-prototype/src/sources/feishu-trigger.ts) · [Source 测试](../dsh-superagent-prototype/tests/sources.spec.ts)
 
 ### 08 · Trigger 落库、Thread 关联与订阅扇出
 
-- [ ] 计划文件 `08-intake-thread-correlation-and-fanout.md` · 10,000–15,000 字或以上
+- [x] [08-intake-thread-correlation-and-fanout.md](08-intake-thread-correlation-and-fanout.md) · 已交付
 - **原理与内容**　沿 `Intake.receive` 推演时间标准化、ID 幂等、过滤留痕、Thread 关联、按 Ticket 合并扇出和主 Thread 的 Eval 排队。用同一事件关联两个 Thread 的例子，展示两个订阅命中同一 Ticket 时如何合并，以及 context-only 命中对输入的影响。
 - **面试追问**　为什么既要保留被过滤的 Trigger，也要保存它的处置记录？为什么订阅命中与任务归属需要分开分析？
 - **精读依据**　[Intake](../dsh-superagent-prototype/src/core/intake.ts) · [领域模型](../dsh-superagent-prototype/src/core/model.ts) · [Thread 索引](../dsh-superagent-prototype/src/app/store.ts) · [后续消息测试](../dsh-superagent-prototype/tests/followups.spec.ts)
