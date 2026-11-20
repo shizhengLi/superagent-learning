@@ -29,7 +29,7 @@
 
 ### 01 · 什么是主动式 Superagent
 
-- [ ] 计划文件 `01-what-is-a-superagent.md` · 6,000–10,000 字
+- [x] [01-what-is-a-superagent.md](01-what-is-a-superagent.md) · 已交付
 - **原理与内容**　从人的注意力成本、持续感知、显式委托和结果回流定义本项目的「主动」。用同一条 Issue 对比交互式编码助手、固定工作流和主动 Agent 的控制权、触发条件、状态跨度与反馈方式，再画出原型和 DSH 宿主的职责边界。
 - **面试追问**　主动性可以分成哪些层次？为什么主动监听、主动建单、主动执行需要三种不同的约束？
 - **精读依据**　[README](../dsh-superagent-prototype/README.md) · [设计原则](../dsh-superagent-prototype/docs/000-philosophy.md) · [插件入口](../dsh-superagent-prototype/src/index.ts) · [Runtime](../dsh-superagent-prototype/src/app/runtime.ts)
