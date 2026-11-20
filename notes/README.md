@@ -50,7 +50,7 @@
 
 ### 04 · 一条 Issue 请求的端到端执行轨迹
 
-- [ ] 计划文件 `04-end-to-end-issue-to-pr.md` · 10,000–15,000 字或以上
+- [x] [04-end-to-end-issue-to-pr.md](04-end-to-end-issue-to-pr.md) · 已交付
 - **原理与内容**　用一张泳道图串起 Source、Engine、SQLite、Effects、主 Session、Worker、GitHub。沿 `Intake.receive`、`Evals.start`、`orchestrator_route`、Assignment 启动、`orchestrator_report`、Outbox 追踪每一步产生的记录和异步交接点。区分接受请求、回复送达、Worker 就绪、PR 合并等可观察事实。
 - **面试追问**　如果建单已提交而 Worker 尚未启动，下一步由谁推动？怎样从一次外部消息找到对应的 Eval、Ticket 和 Worker Session？
 - **精读依据**　[Intake](../dsh-superagent-prototype/src/core/intake.ts) · [Evals](../dsh-superagent-prototype/src/core/evals.ts) · [主工具](../dsh-superagent-prototype/src/app/tools/main.ts) · [Executor](../dsh-superagent-prototype/src/executor/dsh.ts) · [运行时测试](../dsh-superagent-prototype/tests/runtime.spec.ts)
