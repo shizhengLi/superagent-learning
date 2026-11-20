@@ -43,7 +43,7 @@
 
 ### 03 · 领域模型与 Engine 的事务边界
 
-- [ ] 计划文件 `03-domain-model-and-engine.md` · 10,000–15,000 字或以上
+- [x] [03-domain-model-and-engine.md](03-domain-model-and-engine.md) · 已交付
 - **原理与内容**　从事件、状态、授权依据与外部副作用四种职责推导数据模型。画出 Trigger、Thread、Eval、Decision、Mandate、Ticket、Assignment、Input、Channel 的引用关系。沿 `Engine` 的角色接口梳理 Source、主 Session、Worker 和人工管理方能提交的命令，对照内存仓储与 SQLite 仓储。
 - **面试追问**　为什么 Thread、Ticket 与 Session 各有身份？为什么一次重试可以换 Assignment，同时沿用 Ticket？
 - **精读依据**　[领域类型](../dsh-superagent-prototype/src/core/model.ts) · [Engine](../dsh-superagent-prototype/src/core/engine.ts) · [端口](../dsh-superagent-prototype/src/core/ports.ts) · [内存仓储](../dsh-superagent-prototype/src/core/memory.ts) · [核心测试](../dsh-superagent-prototype/tests/core-engine.spec.ts)
