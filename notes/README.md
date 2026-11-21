@@ -103,14 +103,14 @@
 
 ### 11 · 显式路由与推断评估的双路径
 
-- [ ] 计划文件 `11-explicit-routing-and-inferred-eval.md` · 10,000–15,000 字或以上
+- [x] [11-explicit-routing-and-inferred-eval.md](11-explicit-routing-and-inferred-eval.md) · 已交付
 - **原理与内容**　对照 `orchestrator_route` 和 `orchestrator_eval`、`orchestrator_eval_read`、`orchestrator_eval_decide` 的契约。画出模型识别意图、当前规则覆盖检查、方向与证据校验、Engine 复核的职责分工。用 `off / observe / auto` 演算同一推断请求，包括 `would_accept` 的审计意义。
 - **面试追问**　为什么结构化输出仍要做业务校验？怎样灰度扩大主动处理范围，同时量化越权建单和漏接？
 - **精读依据**　[主工具](../dsh-superagent-prototype/src/app/tools/main.ts) · [MasterAssessor](../dsh-superagent-prototype/src/app/assessment.ts) · [结果转换](../dsh-superagent-prototype/src/policy.ts) · [准入提示词](../dsh-superagent-prototype/prompts/admission.md) · [工具测试](../dsh-superagent-prototype/tests/tools.spec.ts)
 
 ### 12 · Thread 级批处理、超时与评估重排
 
-- [ ] 计划文件 `12-eval-batching-timeouts-and-requeue.md` · 10,000–15,000 字或以上
+- [x] [12-eval-batching-timeouts-and-requeue.md](12-eval-batching-timeouts-and-requeue.md) · 已交付
 - **原理与内容**　拆解 `pending`、`evaluating`、批内主 Trigger 选择、候选交付、deadline 与重排。演算「候选卡片还在等链接」「同一 Thread 多条消息陆续到达」「暂停跨越原截止时间」「旧 Eval 结果迟到」的四条时序，说明哪些消息进入下一批、哪些结果会失效。
 - **面试追问**　为什么超时从候选实际送达开始计？批处理如何权衡信息完整性、尾延迟和重复建单？
 - **精读依据**　[Evals](../dsh-superagent-prototype/src/core/evals.ts) · [Engine 时钟入口](../dsh-superagent-prototype/src/core/engine.ts) · [评估交付](../dsh-superagent-prototype/src/app/assessment.ts) · [并发测试](../dsh-superagent-prototype/tests/runtime-concurrency.spec.ts)
