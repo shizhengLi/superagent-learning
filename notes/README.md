@@ -140,14 +140,14 @@
 
 ### 16 · Orchestrator 与 Worker 的 Session、模型与工具
 
-- [ ] 计划文件 `16-orchestrator-worker-sessions.md` · 10,000–15,000 字或以上
+- [x] [16-orchestrator-worker-sessions.md](16-orchestrator-worker-sessions.md) · 已交付
 - **原理与内容**　从「决策要看全局，执行要控制范围」推导常驻主 Session 与逐 Ticket Worker。跟踪 `Sessions.ensure`、角色模型解析、prompt/skill 装饰、工具注册与限制。对照 DSH 提供的能力和本项目定义的路由、评估、报告与资源协议，说明一次任务如何跨多个回合。
 - **面试追问**　为什么不让一个模型 Session 永远处理所有工单？主 Session 成为瓶颈时，哪些工作可并发，哪些仍需保持路由一致？
 - **精读依据**　[Sessions](../dsh-superagent-prototype/src/app/sessions.ts) · [角色模型](../dsh-superagent-prototype/src/app/role-models.ts) · [主工具](../dsh-superagent-prototype/src/app/tools/main.ts) · [Worker 工具](../dsh-superagent-prototype/src/app/tools/executor.ts) · [模型配置测试](../dsh-superagent-prototype/tests/role-models.spec.ts)
 
 ### 17 · Assignment 启动、工作区准备与执行环境
 
-- [ ] 计划文件 `17-executor-workspace-and-environment.md` · 6,000–10,000 字
+- [x] [17-executor-workspace-and-environment.md](17-executor-workspace-and-environment.md) · 已交付
 - **原理与内容**　从 `ticketExecution` 和 `launchQueued` 追到 `prepareDirectory`、`Sessions.ensure`、初次任务消息与 started 回写。讲清执行目录如何命名、可配置准备命令何时运行、典型 Git worktree 的用途，以及命令超时、残留目录、重试、工作进程账号与环境变量的关系。
 - **面试追问**　如何让准备失败后的重试可预测？工作目录、CLI 包装器和真正的进程权限隔离分别提供什么保证？
 - **精读依据**　[Executor](../dsh-superagent-prototype/src/executor/dsh.ts) · [Ticket 环境](../dsh-superagent-prototype/src/app/execution-environment.ts) · [命令环境](../dsh-superagent-prototype/src/infra/environment.ts) · [环境测试](../dsh-superagent-prototype/tests/environment.spec.ts)
