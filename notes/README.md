@@ -131,7 +131,7 @@
 
 ### 15 · Ticket 生命周期、人工介入与完成语义
 
-- [ ] 计划文件 `15-ticket-lifecycle-and-human-handoff.md` · 10,000–15,000 字或以上
+- [x] [15-ticket-lifecycle-and-human-handoff.md](15-ticket-lifecycle-and-human-handoff.md) · 已交付
 - **原理与内容**　把 Ticket 是否结束、Assignment 状态、Worker 报告、面板投影四个维度放进同一张状态表。逐步复盘 `ready` 无 PR、有 PR 待审、`blocked` 等人回答、投递失败重试、人工停止，以及已结束 Ticket 因人类消息恢复的时序。
 - **面试追问**　Worker 已经 ready 时，为什么人仍可能有事要做？怎样从报告、输入和 PR 事实证明任务可以结束？
 - **精读依据**　[状态派生](../dsh-superagent-prototype/src/core/stage.ts) · [Ticket](../dsh-superagent-prototype/src/core/tickets.ts) · [Assignment](../dsh-superagent-prototype/src/core/assignments.ts) · [状态测试](../dsh-superagent-prototype/tests/stage.spec.ts)
