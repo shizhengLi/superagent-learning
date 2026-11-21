@@ -117,14 +117,14 @@
 
 ### 13 · Decision、Mandate 与策略变更后的再验证
 
-- [ ] 计划文件 `13-decisions-mandates-and-revalidation.md` · 10,000–15,000 字或以上
+- [x] [13-decisions-mandates-and-revalidation.md](13-decisions-mandates-and-revalidation.md) · 已交付
 - **原理与内容**　区分 `accept / ignore / reopen / stop / unavailable` 的记录意义，追踪 Mandate 中的 actor、strength、basis、规则与策略版本如何形成授权证据。用移除成员、禁用规则、撤掉 Source Scope 和切换模式推演进行中的 Eval、已有 Ticket 与后续恢复各自的行为。
 - **面试追问**　为什么需要记录授权依据？撤销权限为何要区分在途评估、已运行 Worker 与从结束态恢复的任务？
 - **精读依据**　[领域记录](../dsh-superagent-prototype/src/core/model.ts) · [policyVersion 与 revalidate](../dsh-superagent-prototype/src/policy.ts) · [Ticket](../dsh-superagent-prototype/src/core/tickets.ts) · [Evals](../dsh-superagent-prototype/src/core/evals.ts) · [策略测试](../dsh-superagent-prototype/tests/policy.spec.ts)
 
 ### 14 · 后续消息的归属、转派与退回
 
-- [ ] 计划文件 `14-followup-ownership-and-handback.md` · 10,000–15,000 字或以上
+- [x] [14-followup-ownership-and-handback.md](14-followup-ownership-and-handback.md) · 已交付
 - **原理与内容**　按 `followupOwners`、`attach`、`handback` 追踪已有工作上的人类追问。比较任务主线程、context-only 订阅、显式停止请求和多个 Worker 同时拥有消息时的处理。用两张状态表说明退回条件、最后一个所有者退出后再评估及防止同一 Ticket 接回已退消息的机制。
 - **面试追问**　为什么新消息有时直达 Worker？如何避免主 Session 和多个 Worker 重复接单，又保留人工停止通道？
 - **精读依据**　[归属判断](../dsh-superagent-prototype/src/core/model.ts) · [Engine](../dsh-superagent-prototype/src/core/engine.ts) · [Ticket 行为](../dsh-superagent-prototype/src/core/tickets.ts) · [Worker 工具](../dsh-superagent-prototype/src/app/tools/executor.ts) · [后续消息测试](../dsh-superagent-prototype/tests/followups.spec.ts)
