@@ -87,7 +87,7 @@
 
 ### 09 · 按需读取上下文与模型可见信息
 
-- [ ] 计划文件 `09-bounded-context-and-resource-reads.md` · 6,000–10,000 字
+- [x] [09-bounded-context-and-resource-reads.md](09-bounded-context-and-resource-reads.md) · 已交付
 - **原理与内容**　分别分析 Eval 的线程窗口、消息分页、图片引用与评估缓存，以及主 Session/Worker 的 `orchestrator_read`、资源语法和可见性。用飞书长线程和 GitHub 大文件演示引用、游标、offset 与快照怎样限制一次模型输入的体积。
 - **面试追问**　为什么先给候选摘要，再让模型读取原文？上下文缺页、过期或引用超出权限时，如何维持判断的可解释性？
 - **精读依据**　[MasterAssessor](../dsh-superagent-prototype/src/app/assessment.ts) · [线程窗口](../dsh-superagent-prototype/src/sources/admission-context.ts) · [模型资源](../dsh-superagent-prototype/src/app/resources.ts) · [评估测试](../dsh-superagent-prototype/tests/assessment.spec.ts) · [飞书图片测试](../dsh-superagent-prototype/tests/feishu-image.spec.ts)
@@ -96,7 +96,7 @@
 
 ### 10 · Policy 准入矩阵与授权强度
 
-- [ ] 计划文件 `10-policy-admission-matrix.md` · 10,000–15,000 字或以上
+- [x] [10-policy-admission-matrix.md](10-policy-admission-matrix.md) · 已交付
 - **原理与内容**　用决策表串起 Source 的 listened/observed、成员允许列表、bot 列表、是否提及、私聊、既有 Ticket 和 admission 单元格。逐条说明如何得到 `explicit`、`inferred` 或拒绝，并用维护者、陌生用户、登记的 bot、无发送者的 CI 四类输入走读。
 - **面试追问**　为什么「提到机器人」不足以证明委托？为什么系统事件可以进入某些评估路径，但授权强度不同？
 - **精读依据**　[Admission 默认值](../dsh-superagent-prototype/src/admission.ts) · [Policy gate](../dsh-superagent-prototype/src/policy.ts) · [授权文档](../dsh-superagent-prototype/docs/002-authorization.md) · [策略测试](../dsh-superagent-prototype/tests/policy.spec.ts)
