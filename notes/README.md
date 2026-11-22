@@ -154,28 +154,28 @@
 
 ### 18 · Worker 槽位、背压与优先级
 
-- [ ] 计划文件 `18-worker-slots-and-backpressure.md` · 10,000–15,000 字或以上
+- [x] [18-worker-slots-and-backpressure.md](18-worker-slots-and-backpressure.md) · 已交付
 - **原理与内容**　用 `maxWorkers=2` 演算启动预约、运行回合、后台工作占槽、释放与人类唤醒的额外槽。对照 `WorkerSlots`、Effects handler 上限和串行化 Pass，分析慢 prepare、排队、人工追问插入、配置热改与资源饱和。
 - **面试追问**　为何启动预约要在第一个 await 之前完成？Worker 槽位限制与供应商每分钟请求/Token 限额怎样协同？
 - **精读依据**　[WorkerSlots](../dsh-superagent-prototype/src/executor/dsh.ts) · [Effects](../dsh-superagent-prototype/src/app/effects.ts) · [Passes](../dsh-superagent-prototype/src/app/passes.ts) · [并发测试](../dsh-superagent-prototype/tests/runtime-concurrency.spec.ts)
 
 ### 19 · Session 投递幂等与 Worker 已读回执
 
-- [ ] 计划文件 `19-session-delivery-and-read-receipts.md` · 10,000–15,000 字或以上
+- [x] [19-session-delivery-and-read-receipts.md](19-session-delivery-and-read-receipts.md) · 已交付
 - **原理与内容**　沿 Ticket Input、`AgentDelivery`、Session inbox、历史记录与 `inputsRead` 画投递状态图。对照 `queue / steer / inject` 的语义，说明稳定消息 ID 怎样在当前 inbox 和历史记录中用于去重，以及何时重新校验 Assignment。推演收到、被回合领取、进入历史及停止并发发生时的结果。
 - **面试追问**　为什么「投递成功」和「Worker 已读」要分别记录？崩溃发生在发消息与回写状态之间时，系统凭什么决定是否重发？
 - **精读依据**　[AgentDelivery](../dsh-superagent-prototype/src/app/delivery.ts) · [Executor 投递与事件监听](../dsh-superagent-prototype/src/executor/dsh.ts) · [Assignment 回执](../dsh-superagent-prototype/src/core/assignments.ts) · [投递测试](../dsh-superagent-prototype/tests/delivery.spec.ts)
 
 ### 20 · 后台命令、子 Agent 与退出清理
 
-- [ ] 计划文件 `20-background-jobs-and-subagents.md` · 6,000–10,000 字
+- [x] [20-background-jobs-and-subagents.md](20-background-jobs-and-subagents.md) · 已交付
 - **原理与内容**　区分模型回合结束、后台命令结束、子 Agent 完成及 Ticket handoff。走读 `workerIdle`、`untilQuiet`、`handOff`、`stopBackground`，解释哪些工作继续占槽、哪些进入人工交接，以及停止或重启时如何收拢后台执行。
 - **面试追问**　Agent 显示 idle 后，为什么还可能占用 Worker 槽位？如何防止 Session 已停止而后台任务仍生成新的回合？
 - **精读依据**　[后台任务逻辑](../dsh-superagent-prototype/src/executor/background.ts) · [Executor](../dsh-superagent-prototype/src/executor/dsh.ts) · [角色工具限制](../dsh-superagent-prototype/src/app/sessions.ts) · [后台任务测试](../dsh-superagent-prototype/tests/background.spec.ts)
 
 ### 21 · PR 归属、Review/CI 与任务交付
 
-- [ ] 计划文件 `21-pull-request-ownership-and-completion.md` · 6,000–10,000 字
+- [x] [21-pull-request-ownership-and-completion.md](21-pull-request-ownership-and-completion.md) · 已交付
 - **原理与内容**　从 Worker 报告、GitHub Source 发现、分支关联和 Thread `own` 标记追踪 PR 归属。解释多个 PR、review、CI、PR 重开或关闭、关闭后尚有新输入未处理时的状态变化。对照交付提示词的自动合并约定、GitHub 分支保护的强制约束与源码实际记录的事实。
 - **面试追问**　为什么不能把「PR 已创建」直接映射成「任务已完结」？如何防止把别的工单的 PR 算成当前工单的交付？
 - **精读依据**　[PR 关联](../dsh-superagent-prototype/src/sources/github-pull.ts) · [报告工具](../dsh-superagent-prototype/src/app/tools/executor.ts) · [结束逻辑](../dsh-superagent-prototype/src/core/tickets.ts) · [交付要求](../dsh-superagent-prototype/prompts/team/delivery.md) · [Source 测试](../dsh-superagent-prototype/tests/sources.spec.ts)
@@ -184,7 +184,7 @@
 
 ### 22 · SQLite 持久化、索引与迁移
 
-- [ ] 计划文件 `22-sqlite-transactions-indexes-and-migrations.md` · 10,000–15,000 字或以上
+- [x] [22-sqlite-transactions-indexes-and-migrations.md](22-sqlite-transactions-indexes-and-migrations.md) · 已交付
 - **原理与内容**　讲解 `node:sqlite`、WAL、JSON 记录与生成列索引、Trigger–Thread 关联、typed KV、嵌套 SAVEPOINT 和 `afterCommit`。从提交失败、内层回滚、提交后回调异常和 schema 10→11 迁移失败四个情境说明原子性、持久性和兼容边界。
 - **面试追问**　什么时候 JSON 记录配部分索引够用？为什么状态目录锁、SQLite 事务与 Effect 持久化需要各自存在？
 - **精读依据**　[Store](../dsh-superagent-prototype/src/app/store.ts) · [读取投影](../dsh-superagent-prototype/src/app/store-read.ts) · [KV](../dsh-superagent-prototype/src/kv.ts) · [迁移](../dsh-superagent-prototype/src/app/migration.ts) · [迁移测试](../dsh-superagent-prototype/tests/migration.spec.ts)
