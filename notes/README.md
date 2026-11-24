@@ -242,21 +242,21 @@
 
 ### 30 · 单仓库原型如何演进到生产级多租户
 
-- [ ] 计划文件 `30-production-scaling-and-multitenancy.md` · 10,000–15,000 字或以上
+- [x] [30-production-scaling-and-multitenancy.md](30-production-scaling-and-multitenancy.md) · 已交付
 - **原理与内容**　以单仓库、状态目录锁、SQLite 和进程内 Worker 上限为起点，做需求与容量估算。比较每仓库独立实例、共享控制面与隔离执行面两条路线，推导租户分区键、可持久化队列、租约与 fencing、工作区生命周期、模型配额、审计及上线迁移。为每项演进列出代价与启用条件。
 - **面试追问**　给出明确的峰值请求、到达率和处理时长后，怎样估算槽位与积压？怎样避免一个仓库的重试风暴拖慢其他仓库？
 - **精读依据**　[架构边界](../dsh-superagent-prototype/docs/007-architecture.md) · [Runtime](../dsh-superagent-prototype/src/app/runtime.ts) · [Store](../dsh-superagent-prototype/src/app/store.ts) · [Effects](../dsh-superagent-prototype/src/app/effects.ts)
 
 ### 31 · 成本、时延、质量与有限主动性的评估
 
-- [ ] 计划文件 `31-evaluation-metrics-cost-and-latency.md` · 6,000–10,000 字
+- [x] [31-evaluation-metrics-cost-and-latency.md](31-evaluation-metrics-cost-and-latency.md) · 已交付
 - **原理与内容**　利用 Trigger、Decision、Assignment、Outbox 与健康记录，设计授权错误率、建单率、重复率、人工介入率、交付率、恢复时长和消息噪声指标。将端到端时延拆成摄取、评估、排队、执行、等待人工与外发，结合教学案例计算分母和采样原则，说明如何从 observe 到 auto 逐步上线。
 - **面试追问**　判断主动 Agent 价值时，为什么不能只看接了多少任务？哪些指标能由现有记录推算，哪些需要增加埋点或人工判定？
 - **精读依据**　[审计记录定义](../dsh-superagent-prototype/src/core/model.ts) · [策略模式与审计](../dsh-superagent-prototype/src/policy.ts) · [Overview](../dsh-superagent-prototype/src/app/views/overview.ts) · [记录视图](../dsh-superagent-prototype/src/app/views/records.ts)
 
 ### 32 · 系统设计白板题与项目面试答辩
 
-- [ ] 计划文件 `32-system-design-interview-playbook.md` · 10,000–15,000 字或以上
+- [x] [32-system-design-interview-playbook.md](32-system-design-interview-playbook.md) · 已交付
 - **原理与内容**　准备 90 秒项目介绍、5 分钟源码链路、30 分钟白板设计三套话术。围绕 Harness 与模型协作、IM 协同与权限、事件吞吐与 Agent 调度、云上隔离与可靠交付四类岗位视角组织深挖题。每组提供一条源码证据链、一段失败推演、一项替代设计及度量方案。
 - **面试追问**　现场串讲「飞书群提出明确请求 → GitHub 开 PR → 人类补充意见 → 合并与回执」，再推演主 Session 不可用、权限中途撤销和远端已回复但本地回执未写入三个情境。
 - **精读依据**　[架构全景](../dsh-superagent-prototype/docs/007-architecture.md) · [授权规则](../dsh-superagent-prototype/docs/002-authorization.md) · [执行行为](../dsh-superagent-prototype/docs/003-execution.md) · [接入新 Source](../dsh-superagent-prototype/docs/008-cookbook.md) · [管理视图](../dsh-superagent-prototype/docs/005-panel.md)
