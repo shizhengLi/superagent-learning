@@ -219,14 +219,14 @@
 
 ### 27 · 信任边界、最小权限与人工控制
 
-- [ ] 计划文件 `27-trust-boundaries-and-permissions.md` · 10,000–15,000 字或以上
+- [x] [27-trust-boundaries-and-permissions.md](27-trust-boundaries-and-permissions.md) · 已交付
 - **原理与内容**　画出外部消息、策略判定、模型和工具、进程、文件系统、第三方账号之间的边界。逐层检查 Source 范围、Mandate、角色 preset、工具 allowlist、Ticket 结束 guard、panel-only 设置、管理 API 同源校验及命令环境。用防御性案例说明怎样评审提示词注入、越权读写、密钥暴露和误合并风险。
 - **面试追问**　哪些约束由代码或外部权限系统执行？若要给不同团队开放服务，在哪些层补身份、授权、凭据隔离和审计？
 - **精读依据**　[Session 工具控制](../dsh-superagent-prototype/src/app/sessions.ts) · [preset 配置](../dsh-superagent-prototype/cordis.patch.yml) · [执行环境](../dsh-superagent-prototype/src/infra/environment.ts) · [HTTP 管理边界](../dsh-superagent-prototype/src/app/http.ts) · [部署权限](../dsh-superagent-prototype/docs/006-deployment.md)
 
 ### 28 · 暂停、关闭、崩溃恢复与故障排查
 
-- [ ] 计划文件 `28-pause-shutdown-and-crash-recovery.md` · 10,000–15,000 字或以上
+- [x] [28-pause-shutdown-and-crash-recovery.md](28-pause-shutdown-and-crash-recovery.md) · 已交付
 - **原理与内容**　用故障矩阵列出 Source 读取失败、Eval 超时、准备失败、模型临时错误、输入投递失败和外发失败各有何证据、自动重试及人工处理入口。对比 pause、插件重启和进程崩溃，重点推演 running Assignment 对账、pending launch 补排、Session inbox 保留和 Effects drain。
 - **面试追问**　暂停时哪些流程继续记录状态？进程在任意两个持久化动作之间终止后，系统在哪些点能恢复，哪些点需要对账？
 - **精读依据**　[Runtime 生命周期](../dsh-superagent-prototype/src/app/runtime.ts) · [Executor 恢复](../dsh-superagent-prototype/src/executor/dsh.ts) · [Effects](../dsh-superagent-prototype/src/app/effects.ts) · [模型重试健康](../dsh-superagent-prototype/src/app/retry-health.ts) · [运行时并发测试](../dsh-superagent-prototype/tests/runtime-concurrency.spec.ts)
@@ -235,7 +235,7 @@
 
 ### 29 · 如何用测试证明这个 Agent 可信
 
-- [ ] 计划文件 `29-testing-agent-invariants.md` · 6,000–10,000 字
+- [x] [29-testing-agent-invariants.md](29-testing-agent-invariants.md) · 已交付
 - **原理与内容**　从仓储单测、领域状态机、虚拟宿主、并发编排、模型接口契约、面板测试和构建检查整理证据层次。精读「已停止 Ticket 不接收迟到输入」「事务回滚后的 Effect 不执行」「迁移中途失败会回滚」等测试，解释如何构造竞态与断言不变量。再设计实际模型评估所需的样例、人工标注和重复运行。
 - **面试追问**　mock 通过能证明什么？如何设计授权误接率、重复建单率和有效交付率的离线评估？
 - **精读依据**　[测试配置](../dsh-superagent-prototype/vitest.config.ts) · [宿主夹具](../dsh-superagent-prototype/tests/fixtures/host.ts) · [核心测试](../dsh-superagent-prototype/tests/core-engine.spec.ts) · [并发测试](../dsh-superagent-prototype/tests/runtime-concurrency.spec.ts) · [模型接口测试](../dsh-superagent-prototype/tests/model-surface.spec.ts)
