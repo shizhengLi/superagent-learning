@@ -191,28 +191,28 @@
 
 ### 23 · 持久 Effects 队列与异步一致性
 
-- [ ] 计划文件 `23-durable-effects-and-consistency.md` · 10,000–15,000 字或以上
+- [x] [23-durable-effects-and-consistency.md](23-durable-effects-and-consistency.md) · 已交付
 - **原理与内容**　沿 assessment、launch、delivery、relay、notice、reply 六类 Effect 讲清事务内入队、提交后派发、按 kind 的并发限制、`seq`、`generation` 和重试退避。用「正在执行时同 key 新 payload 覆盖」与「旧任务取消后再入队」两个并发案例解释完成时为何要匹配旧行。
 - **面试追问**　为什么本地事务加重试仍可能重复触达外部服务？哪些 Effect 适合串行，哪些串行后容易发生队首阻塞？
 - **精读依据**　[Effects](../dsh-superagent-prototype/src/app/effects.ts) · [Passes](../dsh-superagent-prototype/src/app/passes.ts) · [队列测试](../dsh-superagent-prototype/tests/effects.spec.ts) · [旧队列恢复测试](../dsh-superagent-prototype/tests/queue.spec.ts)
 
 ### 24 · 对外回复、Outbox 与通知节制
 
-- [ ] 计划文件 `24-outbox-replies-and-attention.md` · 10,000–15,000 字或以上
+- [x] [24-outbox-replies-and-attention.md](24-outbox-replies-and-attention.md) · 已交付
 - **原理与内容**　区分确认、答复、需人处理的提醒与结果通知，追到回复目的校验、Channel 选择、持久回执、重试和 `channelGone / channelIgnored`。解释同 Ticket 同会话的顺序约束与失败阈值，进一步分析外部已收消息、回执仍 pending 的崩溃窗口。
 - **面试追问**　怎样让可观测的外发失败与用户通知节制同时成立？为什么存在本地幂等键仍需要分析 GitHub/飞书接口的幂等能力？
 - **精读依据**　[回复规则](../dsh-superagent-prototype/src/core/replies.ts) · [Outbox](../dsh-superagent-prototype/src/app/outbox.ts) · [GitHub Channel](../dsh-superagent-prototype/src/sources/github-channel.ts) · [飞书 Channel](../dsh-superagent-prototype/src/sources/feishu-channel.ts) · [Outbox 测试](../dsh-superagent-prototype/tests/outbox.spec.ts)
 
 ### 25 · Prompt、Skill 与模型接口的版本治理
 
-- [ ] 计划文件 `25-prompt-skill-and-model-surface.md` · 6,000–10,000 字
+- [x] [25-prompt-skill-and-model-surface.md](25-prompt-skill-and-model-surface.md) · 已交付
 - **原理与内容**　拆解内置 prompt、团队 communication/scope/delivery、运行时环境与 Policy 段的装配顺序。跟踪内置片段覆盖、Skill 注册、Prompt revision、乐观并发和 Session 使用的版本，讲清提示词、Zod schema、工具权限与业务校验各自约束什么。
 - **面试追问**　可以按 Prompt revision 复盘一次决策到什么程度？如何验证 Prompt 里提到的工具和资源在相应角色中确实可用？
 - **精读依据**　[Prompt 组装](../dsh-superagent-prototype/src/app/prompts.ts) · [版本仓储](../dsh-superagent-prototype/src/app/versions.ts) · [Session 绑定](../dsh-superagent-prototype/src/app/sessions.ts) · [提示词测试](../dsh-superagent-prototype/tests/prompts.spec.ts) · [模型接口测试](../dsh-superagent-prototype/tests/model-surface.spec.ts)
 
 ### 26 · 设置、权限历史、管理 API 与运营面板
 
-- [ ] 计划文件 `26-settings-api-and-operations-panel.md` · 6,000–10,000 字
+- [x] [26-settings-api-and-operations-panel.md](26-settings-api-and-operations-panel.md) · 已交付
 - **原理与内容**　从 React 面板轮询、共享 API 类型和后端视图追到 SQLite 中的运行记录。覆盖 Overview、Source、Trigger、Eval、Execution、Settings 的排查价值，以及按配置块保存的 revision、异步检查后的二次冲突检测、Policy 变更记录和账号配置重启。
 - **面试追问**　怎样区分「来源没收到」「准入被拒」「Worker 排队」「消息外发失败」？两个操作员改同一块配置或各改一块时会发生什么？
 - **精读依据**　[管理路由](../dsh-superagent-prototype/src/app/http.ts) · [Settings](../dsh-superagent-prototype/src/app/settings.ts) · [配置历史](../dsh-superagent-prototype/src/app/settings-history.ts) · [Overview 视图](../dsh-superagent-prototype/src/app/views/overview.ts) · [前端轮询](../dsh-superagent-prototype/src/client/api.ts) · [设置测试](../dsh-superagent-prototype/tests/settings.spec.ts)
